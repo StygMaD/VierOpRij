@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <title>4 op een rij!</title>
+    <style>
+        table {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        td,
+        th {
+            position: relative;
+            border: 2px solid black;
+        }
+
+        td:hover::after,
+        th:hover::after {
+            content: "";
+            position: absolute;
+            background-color: lightgray;
+            left: 0;
+            top: -5000px;
+            height: 10000px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        td:hover {
+            background-color: black;
+        }
+
+        .red {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .yellow {
+            background-color: yellow
+        }
+    </style>
+
+
+    <script>
+
+        function check() {
+
+            var rows = document.querySelectorAll('tr');
+            var xy = document.getElementById("myDIV").innerHTML;
+
+            for (var i = 0; i < rows.length; i++) {
+                var redCellsH = rows[i].querySelectorAll('td[class*="red"]');
+                if (redCellsH.length === 4) {
+                    alert(xy + " wint!");
+                }
+            }
+
+            var rowsY = document.querySelectorAll('tr');
+            var xyy = document.getElementById("myDIV").innerHTML;
+
+            for (var i = 0; i < rowsY.length; i++) {
+                var yelCellsH = rowsY[i].querySelectorAll('td[class*="yellow"]');
+                if (yelCellsH.length === 4) {
+                    alert(xyy + " wint!");
+                }
+            }
+
+
+
+       
+
+        }
+
+
+        function klikken(clicked) {
+            var x = document.getElementById("myDIV");
+            if (x.innerHTML === "Speler1 Rood") {
+
+                klikkenSpeler1(clicked);
+
+            }
+            else {
+                klikkenSpeler2(clicked);
+            }
+
+        }
+
+        function klikkenSpeler1(clicked) {
+
+
+
+            if (!document.getElementById(clicked).classList.contains('red')) {
+                document.getElementById(clicked).classList.add('red');
+            }
+
+            check();
+        }
+
+
+        function klikkenSpeler2(clicked) {
+
+
+            if (!document.getElementById(clicked).classList.contains('yellow')) {
+                document.getElementById(clicked).classList.add('yellow');
+            }
+
+            check();
+        }
+
+
+
+
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.innerHTML === "Speler1 Rood") {
+                x.innerHTML = "Speler2 Geel";
+            } else {
+                x.innerHTML = "Speler1 Rood";
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <p>Kies een vakje en druk daarna op de "Wissel van speler" knop</p>
+    <p><button onclick="myFunction()">Wissel van speler</button></p>
+    <p><button onclick=location.reload();>Reset</button></p>
+    <div id="myDIV">Speler1 Rood</div>
+    <p></p>
+
+    <table>
+        <tr>
+            <td id="15" class="kol1" onclick="klikken(this.id)"></td>
+            <td id="21" class="toggle" onclick="klikken(this.id)"> </td>
+            <td id="27" class="toggle" onclick="klikken(this.id)"> </td>
+            <td id="33" class="toggle" onclick="klikken(this.id)"> </td>
+            <td id="39" class="toggle" onclick="klikken(this.id)"> </td>
+            <td id="45" class="toggle" onclick="klikken(this.id)"> </td>
+            <td id="51" class="toggle" onclick="klikken(this.id)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="14" class="kol1" onclick="klikken(this.id)"></td>
+            <td id="20" onclick="klikken(this.id)"> </td>
+            <td id="26" onclick="klikken(this.id)"> </td>
+            <td id="32" onclick="klikken(this.id)"> </td>
+            <td id="38" onclick="klikken(this.id)"> </td>
+            <td id="44" onclick="klikken(this.id)"> </td>
+            <td id="50" onclick="klikken(this.id)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="13" class="kol1" onclick="klikken(this.id)"></td>
+            <td id="19" onclick="klikken(this.id)"> </td>
+            <td id="25" onclick="klikken(this.id)"> </td>
+            <td id="31" onclick="klikken(this.id)"> </td>
+            <td id="37" onclick="klikken(this.id)"> </td>
+            <td id="43" onclick="klikken(this.id)"> </td>
+            <td id="49" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+            <td id="12" class="kol1" onclick="klikken(this.id)"></td>
+            <td id="18" onclick="klikken(this.id)"> </td>
+            <td id="24" onclick="klikken(this.id)"> </td>
+            <td id="30" onclick="klikken(this.id)"> </td>
+            <td id="36" onclick="klikken(this.id)"> </td>
+            <td id="42" onclick="klikken(this.id)"> </td>
+            <td id="48" onclick="klikken(this.id)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+            <td id="11" class="kol1" onclick="klikken(this.id)"></td>
+            <td id="17" onclick="klikken(this.id)"> </td>
+            <td id="23" onclick="klikken(this.id)"> </td>
+            <td id="29" onclick="klikken(this.id)"> </td>
+            <td id="35" onclick="klikken(this.id)"> </td>
+            <td id="41" onclick="klikken(this.id)"> </td>
+            <td id="47" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+            <td id="10" class="kol1" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="16" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="22" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="28" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="34" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="40" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="46" onclick="klikken(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+
+    <ul>Bugs to fix:
+        <li>Steen valt niet naar beneden, vakje fungeerd als vak niet als gehele kolom</li>
+        <li>Speler wisselen is niet automatisch, maar via knop</li>
+        <li>Spelers kunnen elkaars kleur veranderen in de tabel cellen</li>
+        <li>Win check is alleen horizontaal en geld al als er 4 in dezelfde row staan (niet perse naast elkaar) </li>
+        <li>Gegevens worden niet opgeslagen</li>
+    </ul>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
